@@ -24,6 +24,7 @@ header {
     width: 100%;
     background-color: orange;
     position: fixed;
+    z-index: 100;
 }
 
 .header-orange {
@@ -53,11 +54,41 @@ header {
     width: calc(100% /3 - 20px / 3);
     gap: 10px;
 }
-
-.image {
+/* image container */
+.image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.image-primary {
     width: 100%;
     height: 100%;
 }
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* l’immagine che deve comparire al passaggio del mouse parte nascosta */
+.image-hover {
+  position: absolute; /* così sta sopra l’altra */
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* quando passi il cursore sulla card... */
+.card:hover .image-hover {
+  opacity: 1; /* seconda immagine diventa visibile */
+}
+
+/* e la prima scompare */
+.card:hover .image-primary {
+  opacity: 0;
+}
+
 
 .discount {
     position: relative;
